@@ -1,0 +1,603 @@
+:root {
+    /* Primary */
+    --very-dark-blue: #0F1424;  
+    --desaturated-very-dark-blue: #34397B;
+
+    --dark-blue: #1C204C;
+    --desaturated-dark-blue: #6F76C8;
+    
+    /* Accent */
+    --blue-violet: #5746EA;
+    --pale-blue: #BDBFFF;
+    --white: #FFF;
+
+    /* Work */
+    --light-orange: #FF8B64;
+    --orange: #D96C47;
+
+    /* Play */
+    --light-blue: #56C2E6;           
+    --blue: #3F9CBB;          
+
+    /* Study */
+    --light-hot-pink: #FF5E7D;           
+    --hot-pink: #F04667;          
+    
+    /* Exercise */
+    --light-green: #4BCF83;         
+    --green: #29BA66;       
+
+    /* Social */
+    --purple: #7235D1;          
+    --dark-purple: #5A1CBD;         
+
+    /* Self Care */
+    --yellow: #F1C75B;        
+    --gold: #E6A532;     
+  
+    /* Typography */
+    font-family: 'Rubik', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+/* Resets */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    min-width: 375px;
+    width: 100%;
+
+    padding: 81px 22.5px;
+
+    background-color: var(--very-dark-blue);
+    color: var(--white);  
+}
+ 
+.dashboard {
+    display: grid;
+    grid-template-columns: 330px;
+    grid-template-rows: 205px repeat(6, 160px);
+    justify-content: center;
+    row-gap: 23px;
+}
+
+/* 
+    Activity Card
+    -------------
+*/
+
+#work {
+    background-color: var(--light-orange);
+}
+
+#play {
+    background-color: var(--light-blue);
+}
+
+#study {
+    background-color: var(--light-hot-pink);
+}
+
+#exercise {
+    background-color: var(--light-green);
+}
+
+#social {
+    background-color: var(--purple);
+}
+
+#self-care {
+    background-color: var(--yellow);
+}
+
+.activity-card {
+    min-width: 330px;
+    max-width: 420px;
+    border-radius: 14px;
+    position: relative;
+
+    outline: 2px solid var(--very-dark-blue);
+}
+
+.activity-card__icon {
+    display: block;
+
+    position: absolute;
+    right: 22px;
+    top: 0;
+}
+
+/* Foreground */
+.activity-card__foreground {
+    width: 100%;
+    height: 121px;
+
+    position: absolute;
+    bottom: 0px;
+
+    background-color: var(--dark-blue);
+    border-radius: 14px 14px 13px 13px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 26px 27px 24px; 
+
+    transition-property: background-color;
+    transition-timing-function: ease-in;
+    transition-duration: 300ms;
+    transition-delay: 150ms;
+}
+
+.activity-card__foreground:hover {
+    background-color: var(--desaturated-very-dark-blue);
+    transition-delay: 0ms;
+}
+
+/* Line 1, 2 (Mobile) */
+.activity-card__line1, .activity-card__line2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+
+    /* When .fadeOut is removed */
+    opacity: 100;
+    transition: opacity 400ms ease-in 100ms;
+} 
+
+    .fadeOut {
+        /* When .fadeOut is added */
+        transition: opacity 200ms ease-out;
+        opacity: 0;
+    }
+
+.activity-card__title {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    width: max-content;
+
+    /* font: normal 500 18px 21px 'Rubik'; */
+}
+
+.activity-card__ellipsis {
+    fill: var(--pale-blue);
+    
+    box-sizing: content-box;
+    padding: 8px 0;
+    
+    transition-property: fill;
+    transition-timing-function: ease-in;
+    transition-duration: 300ms;
+    transition-delay: 100ms;
+}
+
+.activity-card__ellipsis:hover {
+    fill: var(--white);
+    transition-delay: 0ms;
+}
+
+.activity-card__hours {
+    font-weight: 300;
+    text-align: left;
+}
+
+.activity-card__hours {
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: -0.0175em;
+    text-align: left;
+}
+
+.activity-card__last-period {
+    color: var(--pale-blue);
+    font-size: 15px;
+    line-height: 18px;
+}
+
+/* 
+
+    Profile Card 
+
+    Inherits additional font properties from body
+
+*/
+
+.profile-card {
+    /* Shape and Sizing */
+    min-width: 330px;
+    max-width: 420px;
+    height: 205px;
+    border-radius: 14px;          
+
+    background: var(--dark-blue);
+}
+
+.profile-card nav {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+
+    height: 71px;
+    padding: 10px 32px 10px 35px
+}
+
+.profile-card__foreground {
+    border-radius: 14px;
+    background: var(--blue-violet);
+
+    display: grid;
+
+        grid-template-columns: 70px max-content;
+        column-gap: 16px;
+
+        grid-template-rows: 134px;
+        justify-content: left;
+        align-items: center;
+
+    padding-left: 31px;
+    padding-right: 44px;
+}
+
+.profile-card__foreground > div {
+    height: 70px;
+    line-height: 4px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+
+}
+
+.profile-card__picture {
+    width: 70px;
+    height: 70px;
+
+    border-radius: 100%;
+
+    outline: 2.5px solid var(--white);
+    outline-offset: -1px;
+}
+    
+.profile-card__overline {
+    display: block;
+    padding-bottom: 4px;
+}
+
+.profile-card__display-name {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+
+    display: block;
+}
+
+.profile-card__text-button {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+
+    text-align: left;
+
+    background: none;
+    border: none;
+
+    color: var(--desaturated-dark-blue);
+
+    transition-property: color;
+    transition-timing-function: ease-in;
+    transition-duration: 150ms;
+    transition-delay: 200ms;
+}
+
+.profile-card__text-button:hover {
+    color: var(--pale-blue);
+    transition-delay: 0ms;
+}
+
+.profile-card__text-button:active {
+    color: var(--white);
+}
+
+.profile-card__text-button--displaying {
+    color: var(--white);
+}
+
+/* 
+    Attribution
+*/
+
+.attribution {
+    width: 100%;
+    max-width: none;
+    font-size: 11px;
+    line-height: 13px;
+    color: var(--pale-blue);
+}
+
+.attribution p {
+    display: block;
+    text-align: center;
+}
+
+.attribution > :first-child {
+    margin-bottom: 12px;
+}
+
+a {
+    color: var(--desaturated-dark-blue);
+    transition: color 150ms ease-in-out 0ms;
+}
+
+a:visited {
+    color: var(--desaturated-very-dark-blue);
+}
+
+a:hover {
+    color:var(--pale-blue);
+}
+
+/* 
+    --- Media Queries ---
+
+        Default: 
+        - Fixed card width
+        - Centered content
+        - Grow left and right space
+*/
+
+/* Grow card width, left space, and right space. */
+@media (min-width: 428px){
+    body {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .dashboard {
+        padding-left: 0;
+        padding-right: 0;
+
+        grid-template-columns: .25fr 1fr .25fr;
+        justify-items: center;
+    }
+
+    .dashboard > * {
+        grid-column: 2 / 3;
+        width: 100%;
+    }
+}
+
+/* Screen height fits desktop profile-card. */
+@media (min-height: 616px) {
+
+    /* 
+        Screen width fits two columns of desktop cards
+        with left/right margin >= grid-gap. 
+    */
+    @media (min-width: 600px) { 
+        body {
+            padding: 0;
+        }
+
+        .dashboard {
+            display: grid;
+            max-width: none;
+            width: 533px;
+            margin: 81px auto;
+
+            width: 100%;
+
+            grid-auto-flow: row dense; 
+            gap: 30px;
+
+            grid-template-columns: repeat(2, 255px);
+            grid-template-rows: repeat(4, 245px);     
+            grid-template-areas:
+                "profile    work"              
+                "profile    play"
+                "social     study"
+                "self-care  exercise"
+                "attribution attribution";
+        }
+
+        #work {
+            grid-area: work;
+        }
+        
+        #play {
+            grid-area: play;
+        }
+
+        #social {
+            grid-area: social;
+        }
+
+        #study {
+            grid-area: study;
+        }
+
+        #self-care {
+            grid-area: self-care;
+        }
+
+        #exercise {
+            grid-area: exercise;
+        }
+
+        .attribution {
+            grid-area: attribution;
+            align-self: center;
+            
+        }
+
+        .activity-card {
+            min-width: 255px;
+            width: 255px;
+            min-height: 245px;
+        }
+
+        .activity__icon {
+            right: 25px;
+        }
+
+        .activity-card__foreground {
+            height: 200px;
+            padding: 30px;
+        }
+
+        .activity-card__line2 {
+            display: block;
+            padding-top: 9px;
+        }
+
+        .activity-card__hours {
+            font-size: 57px;
+            font-weight: 300;
+            line-height: 68px;
+            letter-spacing: -0.015em;
+        }
+
+        .profile-card {
+            min-width: 0;
+            width: 255px;
+            height: 513px;
+
+            grid-column: unset;
+            grid-area: "profile";
+        }
+
+        .profile-card__foreground {
+            height: 349px;
+            width: 100%;
+            min-width: 0;
+
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 35px 35px 80px 32px;
+        }
+
+        .profile-card__foreground > div {
+            display: block;
+            padding-top: 34px;
+        }
+
+        .profile-card__picture {
+            width: 84px;
+            height: 84px;
+        }
+
+        .profile-card__display-name {
+            font-weight: 300;
+            font-size: 40px;
+            line-height: 47px;
+        }
+
+        .profile-card__display-name br {
+            display: block;
+        }
+
+        .profile-card nav {
+            display: flex; 
+            flex-direction: column;
+            justify-content: space-between;
+
+            margin: 0; 
+            padding: 16px 16px;
+
+            height: 164px;
+        }
+
+        .profile-card__text-button {
+            width: min-content;
+            padding: 10px 16px;
+            margin: 0;
+        }
+
+        /* Screen height fits all rows and margin; center content vertically. */
+        @media (min-height: 1313px) and (max-width: 885px) {
+             body {
+                display: flex;
+                height: 100vh;
+                flex-direction: column;
+            }
+
+            .dashboard {
+                margin: auto auto;
+            }
+        }
+    }
+    
+    /* 
+        Screen width fits three columns of desktop cards
+        with left/right margin >= grid-gap. 
+    */
+    @media (min-width: 885px) {
+        .dashboard {
+            width: 811px;
+
+            grid-template-columns: repeat(3, 255px);
+            grid-template-rows: repeat(3, 245px); 
+            grid-template-areas:
+                "profile    work    play"              
+                "profile    study   exercise"
+                ".          social  self-care"
+                "attribution attribution attribution";
+        }
+
+        /* Screen height fits all rows and margin; center content vertically. */
+        @media (min-height: 1038px) and (max-width: 1170px) {
+            body {
+                display: flex;
+                height: 100vh;
+                flex-direction: column;
+            }
+
+            .dashboard {
+                margin: auto auto;
+            }
+        }        
+    }
+    
+    /* 
+        Screen width fits four columns of desktop cards
+        with left/right margin >= grid-gap. 
+    */
+    @media (min-width: 1170px) {
+        .dashboard {
+            width: 1112px;
+
+            grid-template-columns: repeat(4, 255px);
+            grid-template-rows: repeat(2, 245px) min-content;  
+            grid-template-areas:
+                "profile    work    play    study"              
+                "profile   exercise social  self-care"
+                "attribution attribution attribution attribution";                 
+        }
+
+        /* Screen height fits all rows and margin; center content vertically. */
+        @media (min-height: 763px) {
+            body {
+                display: flex;
+                height: 100vh;
+                flex-direction: column;
+            }
+
+            .dashboard {
+                margin: auto auto;
+            }
+        }
+    }
+}
+
