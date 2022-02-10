@@ -150,13 +150,13 @@ body {
     align-items: center;
     align-self: stretch;
 
-    /* When .fadeOut is removed */
+    /* When .hidden is removed */
     opacity: 100;
     transition: opacity 400ms ease-in 100ms;
 } 
 
-    .fadeOut {
-        /* When .fadeOut is added */
+    .hidden {
+        /* When .hidden is added */
         transition: opacity 200ms ease-out;
         opacity: 0;
     }
@@ -295,23 +295,29 @@ body {
 
     color: var(--desaturated-dark-blue);
 
-    transition-property: color;
-    transition-timing-function: ease-in;
-    transition-duration: 150ms;
-    transition-delay: 200ms;
+    transition: color 400ms ease-in 100ms;;
 }
 
 .profile-card__text-button:hover {
-    color: var(--pale-blue);
+    color: var(--white);
     transition-delay: 0ms;
 }
 
 .profile-card__text-button:active {
     color: var(--white);
+
+    transition-delay: none;
 }
 
-.profile-card__text-button--displaying {
+.profile-card__text-button.displaying {
     color: var(--white);
+
+    transition: color 400ms ease-in 100ms;
+}
+
+.profile-card__text-button.displaying:hover {
+    color: var(--pale-blue);
+    transition-delay: 0ms;
 }
 
 /* 
