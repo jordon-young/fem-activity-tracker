@@ -336,6 +336,8 @@ body {
     font-size: 11px;
     line-height: 13px;
     color: var(--pale-blue);
+
+    margin-top: 23px;
 }
 
 .attribution p {
@@ -393,6 +395,10 @@ a:hover {
 /* Screen height fits desktop profile-card. */
 @media (min-height: 616px) {
 
+    .attribution {
+        margin-bottom: 81px;
+    }
+
     /* 
         Screen width fits two columns of desktop cards
         with left/right margin >= grid-gap. 
@@ -406,7 +412,7 @@ a:hover {
             display: grid;
             max-width: none;
             width: 533px;
-            margin: 81px auto;
+            margin: 81px 0 0 0;
 
             width: 100%;
 
@@ -419,8 +425,7 @@ a:hover {
                 "profile    work"              
                 "profile    play"
                 "social     study"
-                "self-care  exercise"
-                "attribution attribution";
+                "self-care  exercise";
         }
 
         #work {
@@ -483,7 +488,7 @@ a:hover {
         .profile-card {
             min-width: 0;
             width: 255px;
-            height: 513px;
+            height: 520px;
 
             grid-column: unset;
             grid-area: "profile";
@@ -541,15 +546,28 @@ a:hover {
         }
 
         /* Screen height fits all rows and margin; center content vertically. */
-        @media (min-height: 1313px) and (max-width: 885px) {
-             body {
-                display: flex;
+        @media (min-height: 1300px) and (max-width: 885px) {
+            body {
                 height: 100vh;
-                flex-direction: column;
+                display: grid;
+                grid-gap: 30px;
+                
+                grid-template-columns: 1fr min-content 1fr;
+                grid-template-rows: 1fr min-content 1fr;
+                grid-template-areas:    ". . ."
+                                        ". dashboard ."
+                                        ". footer .";
             }
 
             .dashboard {
-                margin: auto auto;
+                grid-area: dashboard;
+                margin: 0;
+            }
+
+            .attribution {
+                grid-area: footer;
+                align-self: start;
+                margin: 0;
             }
         }
     }
@@ -561,26 +579,39 @@ a:hover {
     @media (min-width: 885px) {
         .dashboard {
             width: 811px;
+            margin: 81px auto 0 auto;
 
             grid-template-columns: repeat(3, 255px);
             grid-template-rows: repeat(3, 245px); 
             grid-template-areas:
                 "profile    work    play"              
                 "profile    study   exercise"
-                ".          social  self-care"
-                "attribution attribution attribution";
+                ".          social  self-care";
         }
 
         /* Screen height fits all rows and margin; center content vertically. */
-        @media (min-height: 1038px) and (max-width: 1170px) {
+        @media (min-height: 1005px) and (max-width: 1170px) {
             body {
-                display: flex;
                 height: 100vh;
-                flex-direction: column;
+                display: grid;
+                grid-gap: 30px;
+                
+                grid-template-columns: 1fr min-content 1fr;
+                grid-template-rows: 1fr min-content 1fr;
+                grid-template-areas:    ". . ."
+                                        ". dashboard ."
+                                        ". footer .";
             }
 
             .dashboard {
-                margin: auto auto;
+                grid-area: dashboard;
+                margin: 0;
+            }
+
+            .attribution {
+                grid-area: footer;
+                align-self: start;
+                margin: 0;
             }
         }        
     }
@@ -594,23 +625,35 @@ a:hover {
             width: 1112px;
 
             grid-template-columns: repeat(4, 255px);
-            grid-template-rows: repeat(2, 245px) min-content;  
+            grid-template-rows: repeat(2, 245px);  
             grid-template-areas:
                 "profile    work    play    study"              
-                "profile   exercise social  self-care"
-                "attribution attribution attribution attribution";                 
+                "profile   exercise social  self-care";                 
         }
 
         /* Screen height fits all rows and margin; center content vertically. */
-        @media (min-height: 763px) {
+        @media (min-height: 710px) {
             body {
-                display: flex;
                 height: 100vh;
-                flex-direction: column;
+                display: grid;
+                grid-gap: 30px;
+                
+                grid-template-columns: 1fr min-content 1fr;
+                grid-template-rows: 1fr min-content 1fr;
+                grid-template-areas:    ". . ."
+                                        ". dashboard ."
+                                        ". footer . ";
             }
 
             .dashboard {
-                margin: auto auto;
+                grid-area: dashboard;
+                margin: 0;
+            }
+
+            .attribution {
+                grid-area: footer;
+                align-self: start;;
+                margin: 0;
             }
         }
     }
