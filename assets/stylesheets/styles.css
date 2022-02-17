@@ -265,7 +265,6 @@ body {
     height: 70px;
 
     border-radius: 100%;
-    -webkit-border-radius: 100%;
 
     outline: 2.5px auto var(--white); /* auto for Safari's bug where border-radius doesn't apply */
     outline-offset: -1px;
