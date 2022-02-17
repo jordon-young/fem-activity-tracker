@@ -265,6 +265,7 @@ body {
     height: 70px;
 
     border-radius: 100%;
+    -webkit-border-radius: 100%;
 
     outline: 2.5px solid var(--white);
     outline-offset: -1px;
