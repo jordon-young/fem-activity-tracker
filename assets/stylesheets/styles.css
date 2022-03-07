@@ -1,71 +1,102 @@
 :root {
-    /* Primary */
-    --very-dark-blue: #0F1424;  
-    --desaturated-very-dark-blue: #34397B;
+  /* Primary */
+  --very-dark-blue: #0f1424;
+  --desaturated-very-dark-blue: #34397b;
 
-    --dark-blue: #1C204C;
-    --desaturated-dark-blue: #6F76C8;
-    
-    /* Accent */
-    --blue-violet: #5746EA;
-    --pale-blue: #BDBFFF;
-    --white: #FFF;
+  --dark-blue: #1c204c;
+  --desaturated-dark-blue: #6f76c8;
 
-    /* Work */
-    --light-orange: #FF8B64;
-    --orange: #D96C47;
+  /* Accent */
+  --blue-violet: #5746ea;
+  --pale-blue: #bdbfff;
+  --white: #fff;
 
-    /* Play */
-    --light-blue: #56C2E6;           
-    --blue: #3F9CBB;          
+  /* Work */
+  --light-orange: #ff8b64;
+  --orange: #d96c47;
 
-    /* Study */
-    --light-hot-pink: #FF5E7D;           
-    --hot-pink: #F04667;          
-    
-    /* Exercise */
-    --light-green: #4BCF83;         
-    --green: #29BA66;       
+  /* Play */
+  --light-blue: #56c2e6;
+  --blue: #3f9cbb;
 
-    /* Social */
-    --purple: #7235D1;          
-    --dark-purple: #5A1CBD;         
+  /* Study */
+  --light-hot-pink: #ff5e7d;
+  --hot-pink: #f04667;
 
-    /* Self Care */
-    --yellow: #F1C75B;        
-    --gold: #E6A532;     
-  
-    /* Typography */
-    font-family: 'Rubik', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 18px;
+  /* Exercise */
+  --light-green: #4bcf83;
+  --green: #29ba66;
+
+  /* Social */
+  --purple: #7235d1;
+  --dark-purple: #5a1cbd;
+
+  /* Self Care */
+  --yellow: #f1c75b;
+  --gold: #e6a532;
+
+  /* Typography */
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
 }
 
 /* Resets */
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/*
+    Hover Styles: To prevent sticky hover on touch in iOS Safari and iOS Chrome
+
+    Placed before other styles so focus and active will cascade and override hover.
+*/
+@media (hover: hover) {
+  .activity-card__foreground:hover {
+    background-color: var(--desaturated-very-dark-blue);
+    transition-delay: 0ms;
+  }
+
+  .activity-card__ellipsis:hover {
+    fill: var(--white);
+    transition-delay: 0ms;
+  }
+
+  .profile-card__text-button:hover {
+    color: var(--white);
+    transition-delay: 0ms;
+  }
+
+  .profile-card__text-button.displaying:hover {
+    color: var(--pale-blue);
+    transition-delay: 0ms;
+  }
+
+  a:hover {
+    color: var(--pale-blue);
+  }
 }
 
 body {
-    min-width: 375px;
-    width: 100%;
+  min-width: 375px;
+  width: 100%;
 
-    padding: 81px 22.5px;
+  padding: 81px 22.5px;
 
-    background-color: var(--very-dark-blue);
-    color: var(--white);  
+  background-color: var(--very-dark-blue);
+  color: var(--white);
 }
- 
+
 .dashboard {
-    display: grid;
-    grid-template-columns: 330px;
-    grid-template-rows: 205px repeat(6, 160px);
-    justify-content: center;
-    row-gap: 23px;
+  display: grid;
+  grid-template-columns: 330px;
+  grid-template-rows: 205px repeat(6, 160px);
+  justify-content: center;
+  row-gap: 23px;
 }
 
 /* 
@@ -74,135 +105,125 @@ body {
 */
 
 #work {
-    background-color: var(--light-orange);
+  background-color: var(--light-orange);
 }
 
 #play {
-    background-color: var(--light-blue);
+  background-color: var(--light-blue);
 }
 
 #study {
-    background-color: var(--light-hot-pink);
+  background-color: var(--light-hot-pink);
 }
 
 #exercise {
-    background-color: var(--light-green);
+  background-color: var(--light-green);
 }
 
 #social {
-    background-color: var(--purple);
+  background-color: var(--purple);
 }
 
 #self-care {
-    background-color: var(--yellow);
+  background-color: var(--yellow);
 }
 
 .activity-card {
-    min-width: 330px;
-    max-width: 420px;
-    border-radius: 14px;
-    position: relative;
+  min-width: 330px;
+  max-width: 420px;
+  border-radius: 14px;
+  position: relative;
 
-    outline: 2px solid var(--very-dark-blue);
+  outline: 2px solid var(--very-dark-blue);
 }
 
 .activity-card__icon {
-    display: block;
+  display: block;
 
-    position: absolute;
-    right: 22px;
-    top: 0;
+  position: absolute;
+  right: 22px;
+  top: 0;
 }
 
-/* Foreground */
 .activity-card__foreground {
-    width: 100%;
-    height: 121px;
+  width: 100%;
+  height: 121px;
 
-    position: absolute;
-    bottom: 0px;
+  position: absolute;
+  bottom: 0px;
 
-    background-color: var(--dark-blue);
-    border-radius: 14px 14px 13px 13px;
+  background-color: var(--dark-blue);
+  border-radius: 14px 14px 13px 13px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 28px 26px 27px 24px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 26px 27px 24px;
 
-    transition-property: background-color;
-    transition-timing-function: ease-in;
-    transition-duration: 300ms;
-    transition-delay: 150ms;
+  transition-property: background-color;
+  transition-timing-function: ease-in;
+  transition-duration: 300ms;
+  transition-delay: 150ms;
 }
 
-.activity-card__foreground:hover {
-    background-color: var(--desaturated-very-dark-blue);
-    transition-delay: 0ms;
+/* (Mobile Layout) */
+.activity-card__line1,
+.activity-card__line2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+
+  /* When .hidden is removed */
+  opacity: 100;
+  transition: opacity 400ms ease-in 100ms;
 }
 
-/* Line 1, 2 (Mobile) */
-.activity-card__line1, .activity-card__line2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    align-self: stretch;
-
-    /* When .hidden is removed */
-    opacity: 100;
-    transition: opacity 400ms ease-in 100ms;
-} 
-
-    .hidden {
-        /* When .hidden is added */
-        transition: opacity 200ms ease-out;
-        opacity: 0;
-    }
+.hidden {
+  /* When .hidden is added */
+  transition: opacity 200ms ease-out;
+  opacity: 0;
+}
 
 .activity-card__title {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 21px;
-    width: max-content;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  width: max-content;
 
-    /* font: normal 500 18px 21px 'Rubik'; */
+  /* font: normal 500 18px 21px 'Rubik'; */
 }
 
 .activity-card__ellipsis {
-    fill: var(--pale-blue);
-    
-    box-sizing: content-box;
-    padding: 8px 0;
-    
-    transition-property: fill;
-    transition-timing-function: ease-in;
-    transition-duration: 300ms;
-    transition-delay: 100ms;
-}
+  fill: var(--pale-blue);
 
-.activity-card__ellipsis:hover {
-    fill: var(--white);
-    transition-delay: 0ms;
+  box-sizing: content-box;
+  padding: 8px 0;
+
+  transition-property: fill;
+  transition-timing-function: ease-in;
+  transition-duration: 300ms;
+  transition-delay: 100ms;
 }
 
 .activity-card__hours {
-    font-weight: 300;
-    text-align: left;
+  font-weight: 300;
+  text-align: left;
 }
 
 .activity-card__hours {
-    font-size: 32px;
-    line-height: 38px;
-    letter-spacing: -0.0175em;
-    text-align: left;
+  font-size: 32px;
+  line-height: 38px;
+  letter-spacing: -0.0175em;
+  text-align: left;
 }
 
 .activity-card__last-period {
-    color: var(--pale-blue);
-    font-size: 15px;
-    line-height: 18px;
+  color: var(--pale-blue);
+  font-size: 15px;
+  line-height: 18px;
 }
 
 /* 
@@ -214,116 +235,105 @@ body {
 */
 
 .profile-card {
-    /* Shape and Sizing */
-    min-width: 330px;
-    max-width: 420px;
-    height: 205px;
-    border-radius: 14px;          
+  /* Shape and Sizing */
+  min-width: 330px;
+  max-width: 420px;
+  height: 205px;
+  border-radius: 14px;
 
-    background: var(--dark-blue);
+  background: var(--dark-blue);
 }
 
 .profile-card nav {
-    display: flex; 
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
-    height: 71px;
-    padding: 10px 32px 10px 35px
+  height: 71px;
+  padding: 10px 32px 10px 35px;
 }
 
 .profile-card__foreground {
-    border-radius: 14px;
-    background: var(--blue-violet);
+  border-radius: 14px;
+  background: var(--blue-violet);
 
-    display: grid;
+  display: grid;
 
-        grid-template-columns: 70px max-content;
-        column-gap: 16px;
+  grid-template-columns: 70px max-content;
+  column-gap: 16px;
 
-        grid-template-rows: 134px;
-        justify-content: center;
-        align-items: center;
+  grid-template-rows: 134px;
+  justify-content: center;
+  align-items: center;
 
-    padding-left: 31px;
-    padding-right: 44px;
+  padding-left: 31px;
+  padding-right: 44px;
 }
 
 .profile-card__foreground > header {
-    height: 70px;
-    line-height: 4px;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: center;
+  height: 70px;
+  line-height: 4px;
 
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
 }
 
 .profile-card__picture {
-    width: 70px;
-    height: 70px;
+  width: 70px;
+  height: 70px;
 
-    grid-row: 1 / 2;
-    grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
 }
-    
+
 .profile-card__picture__border {
-    border: 2.5px solid var(--white);
-    border-radius: 100%;
-    z-index: 1;
+  border: 2.5px solid var(--white);
+  border-radius: 100%;
+  z-index: 1;
 }
 
 .profile-card__overline {
-    display: block;
-    padding-bottom: 4px;
+  display: block;
+  padding-bottom: 4px;
 
-    color: var(--pale-blue);
+  color: var(--pale-blue);
 }
 
 .profile-card__display-name {
-    font-weight: 300;
-    font-size: 24px;
-    line-height: 28px;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
 
-    display: block;
+  display: block;
 }
 
 .profile-card__text-button {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 21px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
 
-    text-align: left;
+  text-align: left;
 
-    background: none;
-    border: none;
+  background: none;
+  border: none;
 
-    color: var(--desaturated-dark-blue);
+  color: var(--desaturated-dark-blue);
 
-    transition: color 400ms ease-in 100ms;;
-}
-
-.profile-card__text-button:hover {
-    color: var(--white);
-    transition-delay: 0ms;
+  transition: color 400ms ease-in 100ms;
 }
 
 .profile-card__text-button:active {
-    color: var(--white);
+  color: var(--white);
 
-    transition-delay: none;
+  transition-delay: none;
 }
 
 .profile-card__text-button.displaying {
-    color: var(--white);
+  color: var(--white);
 
-    transition: color 400ms ease-in 100ms;
-}
-
-.profile-card__text-button.displaying:hover {
-    color: var(--pale-blue);
-    transition-delay: 0ms;
+  transition: color 400ms ease-in 100ms;
 }
 
 /* 
@@ -331,39 +341,35 @@ body {
 */
 
 .attribution {
-    width: 100%;
-    max-width: none;
-    font-size: 11px;
-    line-height: 13px;
-    color: var(--pale-blue);
+  width: 100%;
+  max-width: none;
+  font-size: 11px;
+  line-height: 13px;
+  color: var(--pale-blue);
 
-    margin-top: 23px;
+  margin-top: 23px;
 }
 
 .attribution p {
-    display: block;
-    text-align: center;
+  display: block;
+  text-align: center;
 }
 
 .attribution > :first-child {
-    margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 
 a {
-    color: var(--desaturated-dark-blue);
-    transition: color 150ms ease-in-out 0ms;
+  color: var(--desaturated-dark-blue);
+  transition: color 150ms ease-in-out 0ms;
 }
 
 a:visited {
-    color: var(--desaturated-very-dark-blue);
-}
-
-a:hover {
-    color:var(--pale-blue);
+  color: var(--desaturated-very-dark-blue);
 }
 
 /* 
-    --- Media Queries ---
+    --- Layout & Sizing ---
 
         Default: 
         - Fixed card width
@@ -372,290 +378,290 @@ a:hover {
 */
 
 /* Grow card width, left space, and right space. */
-@media (min-width: 428px){
-    body {
-        padding-left: 0px;
-        padding-right: 0px;
-    }
+@media (min-width: 428px) {
+  body {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 
-    .dashboard {
-        padding-left: 0;
-        padding-right: 0;
+  .dashboard {
+    padding-left: 0;
+    padding-right: 0;
 
-        grid-template-columns: .25fr 1fr .25fr;
-        justify-items: center;
-    }
+    grid-template-columns: 0.25fr 1fr 0.25fr;
+    justify-items: center;
+  }
 
-    .dashboard > * {
-        grid-column: 2 / 3;
-        width: 100%;
-    }
+  .dashboard > * {
+    grid-column: 2 / 3;
+    width: 100%;
+  }
 }
 
 /* Screen height fits desktop profile-card. */
 @media (min-height: 616px) {
+  .attribution {
+    margin-bottom: 81px;
+  }
 
-    .attribution {
-        margin-bottom: 81px;
-    }
-
-    /* 
+  /* 
         Screen width fits two columns of desktop cards
         with left/right margin >= grid-gap. 
     */
-    @media (min-width: 600px) { 
-        body {
-            padding: 0;
-        }
-
-        .dashboard {
-            display: grid;
-            max-width: none;
-            width: 533px;
-            margin: 81px 0 0 0;
-
-            width: 100%;
-
-            grid-auto-flow: row dense; 
-            gap: 30px;
-
-            grid-template-columns: repeat(2, 255px);
-            grid-template-rows: repeat(4, 245px);     
-            grid-template-areas:
-                "profile    work"              
-                "profile    play"
-                "social     study"
-                "self-care  exercise";
-        }
-
-        #work {
-            grid-area: work;
-        }
-        
-        #play {
-            grid-area: play;
-        }
-
-        #social {
-            grid-area: social;
-        }
-
-        #study {
-            grid-area: study;
-        }
-
-        #self-care {
-            grid-area: self-care;
-        }
-
-        #exercise {
-            grid-area: exercise;
-        }
-
-        .attribution {
-            grid-area: attribution;
-            align-self: center;
-            
-        }
-
-        .activity-card {
-            min-width: 255px;
-            width: 255px;
-            min-height: 245px;
-        }
-
-        .activity__icon {
-            right: 25px;
-        }
-
-        .activity-card__foreground {
-            height: 200px;
-            padding: 30px;
-        }
-
-        .activity-card__line2 {
-            display: block;
-            padding-top: 9px;
-        }
-
-        .activity-card__hours {
-            font-size: 57px;
-            font-weight: 300;
-            line-height: 68px;
-            letter-spacing: -0.015em;
-        }
-
-        .profile-card {
-            min-width: 0;
-            width: 255px;
-            height: 520px;
-
-            grid-column: unset;
-            grid-area: "profile";
-        }
-
-        .profile-card__foreground {
-            display: block;
-            height: 349px;
-            width: 100%;
-            min-width: 0;
-            padding: 35px 35px 80px 32px;
-        }
-
-        .profile-card__foreground > header {
-            display: block;
-            padding-top: 34px;
-        }
-
-        .profile-card__picture {
-            width: 84px;
-            height: 84px;
-        }
-
-        .profile-card__picture__border {
-            position: absolute;
-            float: top;
-            float: left;
-        }
-
-        .profile-card__display-name {
-            font-weight: 300;
-            font-size: 40px;
-            line-height: 47px;
-        }
-
-        .profile-card__display-name br {
-            display: block;
-        }
-
-        .profile-card nav {
-            display: flex; 
-            flex-direction: column;
-            justify-content: space-between;
-
-            margin: 0; 
-            padding: 16px 16px;
-
-            height: 164px;
-        }
-
-        .profile-card__text-button {
-            width: min-content;
-            padding: 10px 16px;
-            margin: 0;
-        }
-
-        /* Screen height fits all rows and margin; center content vertically. */
-        @media (min-height: 1300px) and (max-width: 885px) {
-            body {
-                height: 100vh;
-                display: grid;
-                grid-gap: 30px;
-                
-                grid-template-columns: 1fr min-content 1fr;
-                grid-template-rows: 1fr min-content 1fr;
-                grid-template-areas:    ". . ."
-                                        ". dashboard ."
-                                        ". footer .";
-            }
-
-            .dashboard {
-                grid-area: dashboard;
-                margin: 0;
-            }
-
-            .attribution {
-                grid-area: footer;
-                align-self: start;
-                margin: 0;
-            }
-        }
+  @media (min-width: 600px) {
+    body {
+      padding: 0;
     }
-    
-    /* 
+
+    .dashboard {
+      display: grid;
+      max-width: none;
+      width: 533px;
+      margin: 81px 0 0 0;
+
+      width: 100%;
+
+      grid-auto-flow: row dense;
+      gap: 30px;
+
+      grid-template-columns: repeat(2, 255px);
+      grid-template-rows: repeat(4, 245px);
+      grid-template-areas:
+        "profile    work"
+        "profile    play"
+        "social     study"
+        "self-care  exercise";
+    }
+
+    #work {
+      grid-area: work;
+    }
+
+    #play {
+      grid-area: play;
+    }
+
+    #social {
+      grid-area: social;
+    }
+
+    #study {
+      grid-area: study;
+    }
+
+    #self-care {
+      grid-area: self-care;
+    }
+
+    #exercise {
+      grid-area: exercise;
+    }
+
+    .attribution {
+      grid-area: attribution;
+      align-self: center;
+    }
+
+    .activity-card {
+      min-width: 255px;
+      width: 255px;
+      min-height: 245px;
+    }
+
+    .activity__icon {
+      right: 25px;
+    }
+
+    .activity-card__foreground {
+      height: 200px;
+      padding: 30px;
+    }
+
+    .activity-card__line2 {
+      display: block;
+      padding-top: 9px;
+    }
+
+    .activity-card__hours {
+      font-size: 57px;
+      font-weight: 300;
+      line-height: 68px;
+      letter-spacing: -0.015em;
+    }
+
+    .profile-card {
+      min-width: 0;
+      width: 255px;
+      height: 520px;
+
+      grid-column: unset;
+      grid-area: "profile";
+    }
+
+    .profile-card__foreground {
+      display: block;
+      height: 349px;
+      width: 100%;
+      min-width: 0;
+      padding: 35px 35px 80px 32px;
+    }
+
+    .profile-card__foreground > header {
+      display: block;
+      padding-top: 34px;
+    }
+
+    .profile-card__picture {
+      width: 84px;
+      height: 84px;
+    }
+
+    .profile-card__picture__border {
+      position: absolute;
+      float: top;
+      float: left;
+    }
+
+    .profile-card__display-name {
+      font-weight: 300;
+      font-size: 40px;
+      line-height: 47px;
+    }
+
+    .profile-card__display-name br {
+      display: block;
+    }
+
+    .profile-card nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      margin: 0;
+      padding: 16px 16px;
+
+      height: 164px;
+    }
+
+    .profile-card__text-button {
+      width: min-content;
+      padding: 10px 16px;
+      margin: 0;
+    }
+
+    /* Screen height fits all rows and margin; center content vertically. */
+    @media (min-height: 1300px) and (max-width: 885px) {
+      body {
+        height: 100vh;
+        display: grid;
+        grid-gap: 30px;
+
+        grid-template-columns: 1fr min-content 1fr;
+        grid-template-rows: 1fr min-content 1fr;
+        grid-template-areas:
+          ". . ."
+          ". dashboard ."
+          ". footer .";
+      }
+
+      .dashboard {
+        grid-area: dashboard;
+        margin: 0;
+      }
+
+      .attribution {
+        grid-area: footer;
+        align-self: start;
+        margin: 0;
+      }
+    }
+  }
+
+  /* 
         Screen width fits three columns of desktop cards
         with left/right margin >= grid-gap. 
     */
-    @media (min-width: 885px) {
-        .dashboard {
-            width: 811px;
-            margin: 81px auto 0 auto;
+  @media (min-width: 885px) {
+    .dashboard {
+      width: 811px;
+      margin: 81px auto 0 auto;
 
-            grid-template-columns: repeat(3, 255px);
-            grid-template-rows: repeat(3, 245px); 
-            grid-template-areas:
-                "profile    work    play"              
-                "profile    study   exercise"
-                ".          social  self-care";
-        }
-
-        /* Screen height fits all rows and margin; center content vertically. */
-        @media (min-height: 1005px) and (max-width: 1170px) {
-            body {
-                height: 100vh;
-                display: grid;
-                grid-gap: 30px;
-                
-                grid-template-columns: 1fr min-content 1fr;
-                grid-template-rows: 1fr min-content 1fr;
-                grid-template-areas:    ". . ."
-                                        ". dashboard ."
-                                        ". footer .";
-            }
-
-            .dashboard {
-                grid-area: dashboard;
-                margin: 0;
-            }
-
-            .attribution {
-                grid-area: footer;
-                align-self: start;
-                margin: 0;
-            }
-        }        
+      grid-template-columns: repeat(3, 255px);
+      grid-template-rows: repeat(3, 245px);
+      grid-template-areas:
+        "profile    work    play"
+        "profile    study   exercise"
+        ".          social  self-care";
     }
-    
-    /* 
+
+    /* Screen height fits all rows and margin; center content vertically. */
+    @media (min-height: 1005px) and (max-width: 1170px) {
+      body {
+        height: 100vh;
+        display: grid;
+        grid-gap: 30px;
+
+        grid-template-columns: 1fr min-content 1fr;
+        grid-template-rows: 1fr min-content 1fr;
+        grid-template-areas:
+          ". . ."
+          ". dashboard ."
+          ". footer .";
+      }
+
+      .dashboard {
+        grid-area: dashboard;
+        margin: 0;
+      }
+
+      .attribution {
+        grid-area: footer;
+        align-self: start;
+        margin: 0;
+      }
+    }
+  }
+
+  /* 
         Screen width fits four columns of desktop cards
         with left/right margin >= grid-gap. 
     */
-    @media (min-width: 1170px) {
-        .dashboard {
-            width: 1112px;
+  @media (min-width: 1170px) {
+    .dashboard {
+      width: 1112px;
 
-            grid-template-columns: repeat(4, 255px);
-            grid-template-rows: repeat(2, 245px);  
-            grid-template-areas:
-                "profile    work    play    study"              
-                "profile   exercise social  self-care";                 
-        }
-
-        /* Screen height fits all rows and margin; center content vertically. */
-        @media (min-height: 710px) {
-            body {
-                height: 100vh;
-                display: grid;
-                grid-gap: 30px;
-                
-                grid-template-columns: 1fr min-content 1fr;
-                grid-template-rows: 1fr min-content 1fr;
-                grid-template-areas:    ". . ."
-                                        ". dashboard ."
-                                        ". footer . ";
-            }
-
-            .dashboard {
-                grid-area: dashboard;
-                margin: 0;
-            }
-
-            .attribution {
-                grid-area: footer;
-                align-self: start;;
-                margin: 0;
-            }
-        }
+      grid-template-columns: repeat(4, 255px);
+      grid-template-rows: repeat(2, 245px);
+      grid-template-areas:
+        "profile    work    play    study"
+        "profile   exercise social  self-care";
     }
-}
 
+    /* Screen height fits all rows and margin; center content vertically. */
+    @media (min-height: 710px) {
+      body {
+        height: 100vh;
+        display: grid;
+        grid-gap: 30px;
+
+        grid-template-columns: 1fr min-content 1fr;
+        grid-template-rows: 1fr min-content 1fr;
+        grid-template-areas:
+          ". . ."
+          ". dashboard ."
+          ". footer . ";
+      }
+
+      .dashboard {
+        grid-area: dashboard;
+        margin: 0;
+      }
+
+      .attribution {
+        grid-area: footer;
+        align-self: start;
+        margin: 0;
+      }
+    }
+  }
+}
