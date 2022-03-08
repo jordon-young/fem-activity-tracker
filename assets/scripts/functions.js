@@ -9,27 +9,29 @@
 */
 
 async function wait(milliseconds) {
-    return new Promise(resolve => {
-        setTimeout(() => { resolve() }, milliseconds)
-    });
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, milliseconds);
+  });
 }
 
 // Adds "hidden" to the class list and waits for the animation to finish
 async function hide(elements) {
-    elements.forEach((element) => {
-        element.classList.add("hidden");
-    })
+  elements.forEach((element) => {
+    element.classList.add("hidden");
+  });
 
-    return await wait(250);
+  return await wait(250);
 }
 
 // Removes "hidden" from class list and waits for animation to finish
 async function show(elements) {
-    elements.forEach((element) => {
-        element.classList.remove("hidden");
-    })
+  elements.forEach((element) => {
+    element.classList.remove("hidden");
+  });
 
-    return await wait(500);
+  return await wait(500);
 }
 
 /* 
@@ -38,32 +40,33 @@ async function show(elements) {
     timeframes: 'daily', 'weekly' (default), 'monthly'
 */
 export async function displayData(data, timeframe) {
-    const previousPeriodPrefix = {
-        daily: 'Yesterday',
-        weekly: 'Last Week',
-        monthly: 'Last Month'
-    };
+  const previousPeriodPrefix = {
+    daily: "Yesterday",
+    weekly: "Last Week",
+    monthly: "Last Month",
+  };
 
-    // Get .activity-cards
-    const cards = document.getElementsByClassName('activity-card');
+  // Get .activity-cards
+  const cards = document.getElementsByClassName("activity-card");
 
-    // Get direct parents of .activity-card__hours and .activity-card__last-period 
-    const dataElements = Array.from(document.getElementsByClassName('activity-card__line2'));
+  // Get direct parents of .activity-card__hours and .activity-card__last-period
+  const dataElements = Array.from(document.getElementsByClassName("activity-card__line2"));
 
-    // Hide only the elements to be modified
-    // Waits for the animation to finish
-    await hide(dataElements);
+  // Hide only the elements to be modified
+  // Waits for the animation to finish
+  await hide(dataElements);
 
-    // Go through each .activity-card
-    for (let i = 0; i < cards.length; i++) {
-        let card = cards[i];
-        let cardData = data[i].timeframes[timeframe];
+  // Go through each .activity-card
+  for (let i = 0; i < cards.length; i++) {
+    let card = cards[i];
+    let cardData = data[i].timeframes[timeframe];
 
-        card.querySelector('.activity-card__hours').innerText = cardData.current + ' hrs';
-        card.querySelector('.activity-card__last-period').innerText = previousPeriodPrefix[timeframe] + ' - ' + cardData.previous + 'hrs';
-    }
+    card.querySelector(".activity-card__hours").innerText = cardData.current + "hrs";
+    card.querySelector(".activity-card__last-period").innerText =
+      previousPeriodPrefix[timeframe] + " - " + cardData.previous + "hrs";
+  }
 
-    show(dataElements); // By not awaiting, the button transition to .displaying will be in sync with data
+  show(dataElements); // By not awaiting, the button transition to .displaying will be in sync with data
 }
 
 /*
@@ -73,42 +76,42 @@ export async function displayData(data, timeframe) {
 */
 
 function getButtons() {
-    return Array.from(document.getElementsByClassName('profile-card__text-button'));
+  return Array.from(document.getElementsByClassName("profile-card__text-button"));
 }
 
 function disableButtons(buttons) {
-    buttons.forEach((button) => {
-        button.setAttribute("disabled", "true");
-    });
+  buttons.forEach((button) => {
+    button.setAttribute("disabled", "true");
+  });
 }
 
 function enableButtons(buttons) {
-    buttons.forEach((button) => {
-        button.removeAttribute("disabled");
-    });
+  buttons.forEach((button) => {
+    button.removeAttribute("disabled");
+  });
 }
 
 function deselectButtons(buttons) {
-    buttons.forEach(button => {
-        button.classList.remove('displaying');
-    });
+  buttons.forEach((button) => {
+    button.classList.remove("displaying");
+  });
 }
 
 function selectButton(timeframe) {
-    const button = document.getElementById('show-' + timeframe);
-    button.classList.add('displaying');
+  const button = document.getElementById("show-" + timeframe);
+  button.classList.add("displaying");
 }
 
 export async function clickButton(data, timeframe) {
-    console.log(`displaying ${timeframe}...`);
+  console.log(`displaying ${timeframe}...`);
 
-    const buttons = getButtons();
+  const buttons = getButtons();
 
-    disableButtons(buttons);
-    deselectButtons(buttons);
+  disableButtons(buttons);
+  deselectButtons(buttons);
 
-    await displayData(data, timeframe);
+  await displayData(data, timeframe);
 
-    selectButton(timeframe);
-    enableButtons(buttons);
+  selectButton(timeframe);
+  enableButtons(buttons);
 }
