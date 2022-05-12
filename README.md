@@ -16,11 +16,11 @@ This is a solution to the [Time Tracking Dashboard Challenge](https://www.fronte
 
 ## :book: Table of Contents
 
-[:clipboard: The Challenge](#📋-the-challenge)
+[:clipboard: The Challenge](#clipboard-the-challenge)
 
-[:white_check_mark: The Solution](#✅-the-solution)
+[:white_check_mark: The Solution](#white_check_mark-the-solution)
 
-[:link: Links](#🔗-links)
+[:link: Links](#link-links)
 
 ## :clipboard: The Challenge
 
@@ -28,7 +28,7 @@ This is a solution to the [Time Tracking Dashboard Challenge](https://www.fronte
 - [FEM Provided Resources](#fem-provided-resources)
 - [My Goals](#my-goals)
 
-[:arrow_up: Table of Contents](#📖-table-of-contents)
+[:arrow_up: Table of Contents](#book-table-of-contents)
 
 ### Brief
 
@@ -65,7 +65,7 @@ From the [Time Tracking Dashboard Challenge](https://www.frontendmentor.io/chall
 - [Original Design vs. Solution](#original-design-vs-solution)
 - [Additional Solution Layouts](#additional-solution-layouts)
 
-[:arrow_up: Table of Contents](#📖-table-of-contents)
+[:arrow_up: Table of Contents](#book-table-of-contents)
 
 ### Original Design vs. Solution
 
@@ -109,7 +109,7 @@ From the [Time Tracking Dashboard Challenge](https://www.frontendmentor.io/chall
 
 ## :link: Links
 
-[:arrow_up: Table of Contents](#📖-table-of-contents)
+[:arrow_up: Table of Contents](#book-table-of-contents)
 
 ### Author
 
